@@ -1,0 +1,20 @@
+version: 0.2
+
+phases:
+  install:
+    runtime-versions:
+      # no special runtimes required for this static example
+    commands:
+      - echo "Installing (none required for static site)"
+  build:
+    commands:
+      - echo "Build stage - nothing to build for static site"
+  post_build:
+    commands:
+      - echo "Running tests"
+      - chmod +x tests/check_index.sh
+      - ./tests/check_index.sh
+artifacts:
+  files:
+    - index.html
+  discard-paths: yes
